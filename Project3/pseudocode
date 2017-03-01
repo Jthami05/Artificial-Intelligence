@@ -1,0 +1,35 @@
+
+
+read in cities
+
+plot first city
+remove first city from cityList
+
+calculate distance between first city and every city in cityList:
+	city thisCity = firstCity;
+	float currentBestDistance = 0.0;
+	float a = 0.0;
+	city cityToAdd;
+	
+	for (city in cityList) {
+		// case: first city
+		if (currentBestDistance == 0.0)
+			currentBestDistance = getRouteDistance(thisCity, cityList[i]);
+		else {
+			// if this route is more efficient, it's our route and this may be the city to add to currentlyPlottedCities
+			a = getRouteDistance(thisCity, cityList[i]);
+			if (currentBestDistance < a) {
+				currentBestDistance = a;
+				cityToAdd = cityList[i];
+			}
+		}
+	}
+
+take smallest distance, and add that city to currentlyPlottedCities and plot that city
+remove that city from cityList
+repeat, while (!cityList.empty()) 
+
+for every plot, generate a .sh file
+populated with a string concatenated with the current list of cities
+
+close the graph window after it's been plotted!
